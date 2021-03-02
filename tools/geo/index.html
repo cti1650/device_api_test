@@ -2,23 +2,23 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="Sample" content="index" />
+    <meta name="geo" content="index" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../../css/tw.css" rel="stylesheet" />
     <link href="../../css/style.css" rel="stylesheet" />
     <script type="text/javascript" src="./app.js"></script>
-    <title>Sample</title>
+    <title>geo</title>
   </head>
   <body class="w-full max-w-screen-sm p-8 text-center bg-gray-50">
-    <header><h1 class="mb-4">Sample</h1></header>
+    <header><h1 class="mb-4">geo</h1></header>
     <main>
       <div class="flex flex-col space-y-4">
-        <button
-          onClick="doFunc();"
-          class="rounded-full outline-none shadow-lg border-2 border-blue-400 bg-blue-300"
-        >
-          alert
-        </button>
+        <div>
+          <button id="find-me" onClick="geoFindMe();">Show my location</button
+          ><br />
+          <p id="status"></p>
+          <a id="map-link" target="_blank"></a>
+        </div>
       </div>
     </main>
     <footer class="pt-2">
