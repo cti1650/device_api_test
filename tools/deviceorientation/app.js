@@ -1,35 +1,41 @@
-var ball = document.querySelector(".ball");
-var garden = document.querySelector(".garden");
-var output = document.querySelector(".output");
+window.addEventListener("devicemotion", function (event) {
+  var x = event.accelerationIncludingGravity.x;
+  var y = event.accelerationIncludingGravity.y;
+  var z = event.accelerationIncludingGravity.z;
 
-var maxX = garden.clientWidth - ball.clientWidth;
-var maxY = garden.clientHeight - ball.clientHeight;
+  var result1 = document.getElementById("result_acc");
+  result1.innerHTML =
+    "重力加速度<br />" +
+    "X：" +
+    x.toFixed(2) +
+    "(m/s^2)<br />" +
+    "Y：" +
+    y.toFixed(2) +
+    "(m/s^2)<br />" +
+    "Z：" +
+    z.toFixed(2) +
+    "(m/s^2)<br />";
+});
 
-function handleOrientation(event) {
-  var x = event.beta; // -180 から 180 の範囲で角度を示す
-  var y = event.gamma; // -90 から 90 の範囲で角度を示す
+window.addEventListener(
+  "deviceorientation",
+  function (event) {
+    var alpha = event.alpha;
+    var beta = event.beta;
+    var gamma = event.gamma;
 
-  output.innerHTML = "beta : " + x + "\n";
-  output.innerHTML += "gamma: " + y + "\n";
-
-  // デバイスをひっくり返したくはないため、
-  // x の値を -90 から 90 の範囲に制限する
-  if (x > 90) {
-    x = 90;
-  }
-  if (x < -90) {
-    x = -90;
-  }
-
-  // 計算を容易にするため、x および y の値の範囲を
-  // 0 から 180 に変換する
-  x += 90;
-  y += 90;
-
-  // 10 は、ボールのサイズの半分である。
-  // これにより、配置場所をボールの中心に合わせる
-  ball.style.top = (maxX * x) / 180 - 10 + "px";
-  ball.style.left = (maxY * y) / 180 - 10 + "px";
-}
-
-window.addEventListener("deviceorientation", handleOrientation);
+    var result2 = document.getElementById("result_gyro");
+    result2.innerHTML =
+      "ジャイロセンサー<br />" +
+      "alpha：" +
+      alpha.toFixed(2) +
+      "°<br />" +
+      "beta ：" +
+      beta.toFixed(2) +
+      "°<br />" +
+      "gamma：" +
+      gamma.toFixed(2) +
+      "°<br />";
+  },
+  false
+);

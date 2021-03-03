@@ -13,33 +13,13 @@
     <link href="../../css/style.css" rel="stylesheet" />
     <script type="text/javascript" src="./app.js"></script>
     <title>deviceorientation</title>
-    <style>
-      .garden {
-        position: relative;
-        width: 200px;
-        height: 200px;
-        border: 5px solid #ccc;
-        border-radius: 10px;
-      }
-
-      .ball {
-        position: absolute;
-        top: 90px;
-        left: 90px;
-        width: 20px;
-        height: 20px;
-        background: green;
-        border-radius: 100%;
-      }
-    </style>
   </head>
   <body class="w-full max-w-screen-sm p-8 text-center bg-gray-50">
     <header><h1 class="mb-4">deviceorientation</h1></header>
     <main class="pb-24 text-center">
-      <div class="garden">
-        <div class="ball"></div>
-      </div>
-      <pre class="output"></pre>
+      <div id="result_acc"></div>
+      <br />
+      <div id="result_gyro"></div>
     </main>
     <footer class="pb-2 mt-0 fixed w-full bottom-0 left-0 z-50 bg-gray-50">
       <div
