@@ -6,7 +6,12 @@ function multiGetData() {
 
   if (
     ds.setDeviceMotionEvent(function (data) {
-      status.innerHTML = data["error"];
+      if (data["error"] === "none") {
+        status.innerHTML =
+          "x:" + data["x"] + "<br>y:" + data["y"] + "<br>z:" + data["z"];
+      } else {
+        status.innerHTML = data["error"];
+      }
     })
   ) {
     alert("done");
