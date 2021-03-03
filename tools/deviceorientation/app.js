@@ -27,9 +27,9 @@ let alpha = 0,
 
 const deviceorientation = (dat) => {
   // iphoneとandroidで向きが逆なので-1を掛けて任意に修正
-  alpha = dat.alpha * -1;
-  beta = dat.beta * -1;
-  gamma = dat.gamma * -1;
+  alpha = Math.round(dat.alpha * -1 * 100) / 100;
+  beta = Math.round(dat.beta * -1 * 100) / 100;
+  gamma = Math.round(dat.gamma * -1 * 100) / 100;
 };
 
 const handlePress = async () => {
@@ -44,5 +44,5 @@ const handlePress = async () => {
     document.getElementById(
       "txt"
     ).innerHTML = `alpha: ${alpha}<br>beta: ${beta}<br>gamma: ${gamma}`;
-  });
+  }, 200);
 };
