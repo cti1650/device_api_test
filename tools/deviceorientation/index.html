@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="deviceorientation" content="index" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="white" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0"
+    />
+    <link href="../../css/tw.css" rel="stylesheet" />
+    <link href="../../css/style.css" rel="stylesheet" />
+    <script type="text/javascript" src="./app.js"></script>
+    <title>deviceorientation</title>
+    <style>
+      .garden {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 5px solid #ccc;
+        border-radius: 10px;
+      }
+
+      .ball {
+        position: absolute;
+        top: 90px;
+        left: 90px;
+        width: 20px;
+        height: 20px;
+        background: green;
+        border-radius: 100%;
+      }
+    </style>
+  </head>
+  <body class="w-full max-w-screen-sm p-8 text-center bg-gray-50">
+    <header><h1 class="mb-4">deviceorientation</h1></header>
+    <main class="pb-24 text-center">
+      <div class="garden">
+        <div class="ball"></div>
+      </div>
+      <pre class="output"></pre>
+    </main>
+    <footer class="pb-2 mt-0 fixed w-full bottom-0 left-0 z-50 bg-gray-50">
+      <div
+        class="grid grid-cols-3 pt-4 border-t border-black divide-x divide-gray-500"
+      >
+        <div onClick="window.history.back();">＜</div>
+        <div onClick="location.href='../../'">〇</div>
+        <div onClick="window.history.forward();">＞</div>
+      </div>
+    </footer>
+  </body>
+</html>
