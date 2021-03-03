@@ -30,6 +30,9 @@ const deviceorientation = (dat) => {
   alpha = Math.round(dat.alpha * -1 * 100) / 100;
   beta = Math.round(dat.beta * -1 * 100) / 100;
   gamma = Math.round(dat.gamma * -1 * 100) / 100;
+  if (Math.round(beta) === 0) {
+    window.navigator.vibrate(200);
+  }
 };
 
 const handlePress = async () => {
