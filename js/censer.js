@@ -16,15 +16,18 @@ class DeviceSensor {
                 // alert("event.accelerationIncludingGravity is null");
               }
               rep = {
-                x:
+                xg:
                   Math.round(event.accelerationIncludingGravity.x * 1000) /
                   1000,
-                y:
+                yg:
                   Math.round(event.accelerationIncludingGravity.y * 1000) /
                   1000,
-                z:
+                zg:
                   Math.round(event.accelerationIncludingGravity.z * 1000) /
                   1000,
+                x: Math.round(event.acceleration.x * 1000) / 1000,
+                y: Math.round(event.acceleration.y * 1000) / 1000,
+                z: Math.round(event.acceleration.z * 1000) / 1000,
                 error: "none",
               };
               func(rep);
