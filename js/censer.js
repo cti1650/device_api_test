@@ -57,6 +57,7 @@ class DeviceSensor {
               alpha: Math.round(dat.alpha * -1 * 1000) / 1000,
               beta: Math.round(dat.beta * -1 * 1000) / 1000,
               gamma: Math.round(dat.gamma * -1 * 1000) / 1000,
+              error: "none",
             };
             func(rep);
           });
@@ -73,6 +74,7 @@ class DeviceSensor {
             alpha: Math.round(dat.alpha * -1 * 1000) / 1000,
             beta: Math.round(dat.beta * -1 * 1000) / 1000,
             gamma: Math.round(dat.gamma * -1 * 1000) / 1000,
+            error: "none",
           };
           func(rep);
         });
