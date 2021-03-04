@@ -10,12 +10,20 @@ function multiGetData() {
   if (
     ds.setDeviceMotionEvent(function (data) {
       if (data["error"] === "none") {
+        let move = Math.sqrt(data["x"] ^ (2 + data["y"]) ^ (2 + data["z"]) ^ 2);
         if (Math.sqrt(data["x"] ^ (2 + data["y"]) ^ (2 + data["z"]) ^ 2) > 5) {
           count++;
           counter.innerHTML = count;
         }
         status.innerHTML =
-          "x:" + data["x"] + "<br>y:" + data["y"] + "<br>z:" + data["z"];
+          "x:" +
+          data["x"] +
+          "<br>y:" +
+          data["y"] +
+          "<br>z:" +
+          data["z"] +
+          "<br>move:" +
+          move;
       } else {
         status.innerHTML = data["error"];
       }
