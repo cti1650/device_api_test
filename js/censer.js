@@ -49,23 +49,24 @@ class DeviceSensor {
         DeviceOrientationEvent.requestPermission &&
         typeof DeviceOrientationEvent.requestPermission === "function"
       ) {
-        const permission = await DeviceMotionEvent.requestPermission();
-        if (permission === "granted") {
-          window.addEventListener("deviceorientation", function (dat) {
-            // iphoneとandroidで向きが逆なので-1を掛けて任意に修正
-            rep = {
-              alpha: Math.round(dat.alpha * -1 * 1000) / 1000,
-              beta: Math.round(dat.beta * -1 * 1000) / 1000,
-              gamma: Math.round(dat.gamma * -1 * 1000) / 1000,
-              error: "none",
-            };
-            func(rep);
-          });
-          return true;
-        } else {
-          // window.alert("許可されていません");
-          rep = { error: "許可されていません" };
-        }
+        console.log("ok");
+        DeviceMotionEvent.requestPermission()
+          .then((permissionState) => {
+            if (permissionState === "granted") {
+              window.addEventListener("deviceorientation", function (dat) {
+                // iphoneとandroidで向きが逆なので-1を掛けて任意に修正
+                rep = {
+                  alpha: Math.round(dat.alpha * -1 * 1000) / 1000,
+                  beta: Math.round(dat.beta * -1 * 1000) / 1000,
+                  gamma: Math.round(dat.gamma * -1 * 1000) / 1000,
+                  error: "none",
+                };
+                func(rep);
+              });
+              return true;
+            }
+          })
+          .catch((rep = { error: console.error }));
       } else {
         // ios13未満
         window.addEventListener("deviceorientation", function (dat) {
